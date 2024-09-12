@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הפקת דוחות</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <h1>הפקת דוחות</h1>
+    <div id="hideElement">
+        <form id="reportForm">
+            <label for="dateRange">טווח תאריכים:</label>
+            <input type="date" id="takeDate" name="takeDate">
+            <input type="date" id="returnDate" name="returnDate">
+
+            <label for="category">קטגוריה:</label>
+            <select id="category" required>
+                <!-- כאן תכניס את הקטגוריות מהמסד נתונים -->
+            </select>
+
+            <label for="product">מוצר:</label>
+            <select id="product" required>
+                <!-- כאן תכניס את המוצרים מהמסד נתונים -->
+            </select>
+
+            <label for="model">דגם:</label>
+            <select id="model" name="model" required></select>
+
+            <div class="form-group">
+                <label for="item"> מזהה מוצר:</label>
+                <select id="item">
+                    <option value=""> בחר פריט</option>
+                </select>
+    </div>
+
+    <label for="reportType">סוג דוח:</label>
+    <!-- הוספת בחירה לדוח בזמן אמת -->
+    <label>
+        <input type="radio" name="reportType" value="regular" checked> דו"ח רגיל
+    </label>
+    <label>
+        <input type="radio" name="reportType" value="realtime"> דו"ח בזמן אמת
+    </label>
+
+    <label>
+        <input type="radio" name="reportType" value="take"> דו"ח מוצרים בסטטוס לקיחה
+    </label>
+
+
+    <button type="button" id="generateReport" class="custom-button export-button">הפק דו"ח</button>
+    </form>
+    </div>
+
+    <button id="closeReport" class="custom-button close-report-button">✖ סגור דו"ח</button>
+    <button id="exportButton" class="custom-button export-button">ייצא ל-Excel</button>
+
+
+    <div id="reportContainer"></div> <!-- הוספת הקטע הזה להצגת הדו"ח -->
+
+    <!-- Modal for report -->
+    <!-- <div class="modal-overlay" id="report-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2>דו"ח</h2>
+            <div id="report-content">
+                <!-- תוכן הדוח ייכנס כאן -->
+            <!-- </div>
+        </div>
+    </div> --> 
+
+    <script src="js/report.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בחירת פעולה</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="fixed-header">
+            <h1>Track</h1>
+            <h2>בחר פעולה</h2>
+        </div>
+        <div class="button-group">
+            <button id="takeProduct" class="btn">לקחת מוצר</button>
+            <button id="returnProduct" class="btn">להחזיר מוצר</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('takeProduct').addEventListener('click', () => {
+            localStorage.setItem('action', 'take'); // שמירת הפעולה במקומי
+            window.location.href = 'home.html'; // הפנייה לדף לקיחת מוצר
+        });
+
+        document.getElementById('returnProduct').addEventListener('click', () => {
+            localStorage.setItem('action', 'return'); // שמירת הפעולה במקומי
+            window.location.href = 'home.html'; // הפנייה לדף החזרת מוצר
+        });
+    </script>
+</body>
+
+</html>

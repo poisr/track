@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בחר את הפעולה שלך</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ברוך הבא למערכת ניהול</h1>
+        <form id="choice-form">
+            <button type="button" name="choice" value="reports" class="btn" onclick="submitChoice('reports')">עבור לדף דוחות</button>
+            <button type="button" name="choice" value="equipment-form" class="btn" onclick="submitChoice('equipment-form')">עבור לדף טופס מעקב ציוד</button>
+        </form>
+        
+    </div>
+    <script src="./js/admin-choice.js"></script>
+</body>
+</html>

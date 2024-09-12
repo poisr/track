@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <title>מעקב ציוד</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="containerFrom">
+            <div class="fixed-header">
+                <h1>Track</h1>
+                <h2>הזן פרטי ציוד</h2>
+            </div>
+            <button id="startScan" class="btn">סרוק ברקוד</button> <br><br>
+            <input type="text" id="manualBarcode" placeholder="או הקלד ברקוד">
+            <form id="equipmentForm">
+                <div class="form-group">
+                    <label for="category">קטגוריה:</label>
+                    <select id="category" required>
+                        <option value="">בחר קטגוריה</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="product">מוצר:</label>
+                    <select id="product" required>
+                        <option value="">בחר מוצר</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="model">דגם:</label>
+                    <select id="model" required>
+                        <option value="">בחר דגם</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item">מזהה מוצר:</label>
+                    <select id="item">
+                        <option value="">בחר פריט</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notes">הערות:</label>
+                    <textarea id="notes" name="notes"></textarea>
+                </div>
+                <div class="form-group" id="locationContainer">
+                    <label for="location">מיקום:</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <button type="submit" class="btn">שמור מידע</button>
+            </form>
+        </div>
+
+        <!-- Barcode Scanner -->
+        <div id="barcodeScanner" style="width: 100%; height: 400px; background: #f0f0f0; position: relative;"></div>
+
+        <!-- <button id="stopScan">עצור סריקה</button> -->
+        <!-- <input type="text" id="barcode" placeholder="ברקוד סרוק" readonly> -->
+    </div>
+
+    <script src="https://unpkg.com/quagga/dist/quagga.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
