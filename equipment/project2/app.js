@@ -10,6 +10,8 @@ const Model = require('./models/model');
 const Item = require('./models/items');
 const User = require('./models/user');
 const sequelize = require('./config/sequelize');
+const path = require('path');
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -27,9 +29,10 @@ sequelize.authenticate()
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static('public'));
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth', authRoutes);
+
+
 
 // Route to get all categories
 app.get('/api/categories', async (req, res) => {
@@ -40,6 +43,8 @@ app.get('/api/categories', async (req, res) => {
         res.status(500).json({ message: 'Error fetching categories', error });
     }
 });
+
+
 
 // Route to get a category by ID
 app.get('/api/categories/:categoryId', async (req, res) => {
@@ -261,6 +266,11 @@ app.post('/api/users', async (req, res) => {
         res.status(500).json({ error: 'Internal server error', details: error });
     }
 });
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 
 // Route to generate reports
 app.get('/api/reports', async (req, res) => {
