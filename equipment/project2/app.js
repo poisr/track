@@ -15,6 +15,9 @@ const cors = require('cors');
 
 const app = express();
 
+app.use(cors()); // Enable CORS for all routes
+
+
 app.use(cors({
     origin: ['https://track-vv4f.onrender.com', 'http://localhost:8082'], // אפשר בקשות משני הדומיינים
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
