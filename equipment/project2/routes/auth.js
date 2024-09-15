@@ -2,6 +2,17 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user'); // ודא שהנתיב לקובץ נכון
 
+const cors = require('cors');
+
+// הגדרת קונפיגורציה לקורס רק בהגדרה של הנתיבים
+router.use(cors({
+    origin: ['https://track-vv4f.onrender.com', 'http://localhost:8082', 'https://track-9gcf.onrender.com'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+}));
+
+
 // נתיב להתחברות
 router.post('/login', async (req, res) => {
     try {
@@ -48,3 +59,5 @@ router.get('/users/:phoneNumber', async (req, res) => {
 });
 
 module.exports = router;
+
+
