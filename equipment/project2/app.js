@@ -32,8 +32,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth', authRoutes);
 app.use(cors({
-  origin: 'https://track-vv4f.onrender.com' // שים כאן את הכתובת של האתר שלך
+    origin: '*'
 }));
+
 
 
 
