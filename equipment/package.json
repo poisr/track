@@ -2,9 +2,9 @@
   "name": "equipment",
   "version": "1.0.0",
   "description": "",
-  "main": "project2/app.js",
+  "main": "project2/app.js",  // כאן נשאר כפי שהיה, אם project2 הוא התיקיה הנכונה
   "scripts": {
-    "start": "node project2/app.js",
+    "start": "node project2/app.js",  // שינוי כאן אם צריך להתאים למבנה החדש
     "build": "echo 'No build step specified'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
