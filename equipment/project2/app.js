@@ -27,15 +27,15 @@ sequelize.authenticate()
         console.error('Unable to connect to the database:', err);
     });
 
+const cors = require('cors');
+
 app.use(cors({
-    origin: [
-        'https://track-vv4f.onrender.com', 
-        'http://localhost:8082', 
-        'https://track-9gcf.onrender.com'
-    ],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
+  origin: [
+    'https://track-vv4f.onrender.com', // החלף עם הכתובת של האפליקציה הקדמית שלך
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
 
