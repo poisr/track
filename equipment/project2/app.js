@@ -27,7 +27,12 @@ sequelize.authenticate()
         console.error('Unable to connect to the database:', err);
     });
 
-app.use(cors()); // פרופיל CORS פתוח
+app.use(cors({
+    origin: ['https://track-vv4f.onrender.com', 'http://localhost:8082', 'https://track-9gcf.onrender.com'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+}));
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
