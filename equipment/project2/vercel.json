@@ -3,7 +3,10 @@
   "builds": [
     {
       "src": "project2/app.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "nodeVersion": "20.16.x"
+      }
     }
   ],
   "routes": [
