@@ -14,7 +14,7 @@ const path = require('path');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8082;
 const HOST = '0.0.0.0';
 
 //alert("in app");

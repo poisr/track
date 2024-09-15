@@ -2,9 +2,9 @@
   "name": "equipment",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "project2/app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node project2/app.js",
     "build": "echo 'No build step specified'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

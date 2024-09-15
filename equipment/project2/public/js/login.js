@@ -4,12 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const firstNameField = document.getElementById('first-name');
     const lastNameField = document.getElementById('last-name');
 
+    // Change this to your API base URL
+    const apiBaseUrl = 'https://track-9gcf.onrender.com';
+
     phoneNumberField.addEventListener('input', async () => {
         const phoneNumber = phoneNumberField.value;
 
-        if (phoneNumber.length === 10) { // נניח שאורך מספר טלפון תקין הוא 10 תווים
+        if (phoneNumber.length === 10) { // Assuming a valid phone number has 10 characters
             try {
-                const userResponse = await fetch(`http://localhost:3001/auth/users/${phoneNumber}`);
+                const userResponse = await fetch(`${apiBaseUrl}/auth/users/${phoneNumber}`);
 
                 if (userResponse.ok) {
                     const user = await userResponse.json();
@@ -20,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     lastNameField.value = '';
                 }
             } catch (error) {
-                console.error('שגיאה במהלך הבדיקה:', error);
+                console.error('Error during verification:', error);
             }
         } else {
             firstNameField.value = '';
@@ -39,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const userResponse = await fetch(`http://localhost:3001/auth/users/${phoneNumber}`);
+            const userResponse = await fetch(`${apiBaseUrl}/auth/users/${phoneNumber}`);
 
             if (userResponse.ok) {
                 const user = await userResponse.json();
@@ -47,10 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (user.isAdmin) {
                     window.location.href = './admin-choice.html';
                 } else {
-                    showWelcomeMessage(`ברוך הבא, ${user.firstName} ${user.lastName}!`);
+                    showWelcomeMessage(`Welcome, ${user.firstName} ${user.lastName}!`);
                 }
             } else if (userResponse.status === 404) {
-                const createResponse = await fetch('http://localhost:3001/auth/login', {
+                const createResponse = await fetch(`${apiBaseUrl}/auth/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -63,13 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (result.user.isAdmin) {
                     window.location.href = './admin-choice.html';
                 } else {
-                    showWelcomeMessage(`משתמש חדש נוצר, ברוך הבא ${result.user.firstName} ${result.user.lastName}!`);
+                    showWelcomeMessage(`New user created, welcome ${result.user.firstName} ${result.user.lastName}!`);
                 }
             } else {
-                throw new Error('שגיאה בטעינת פרטי המשתמש');
+                throw new Error('Error loading user details');
             }
         } catch (error) {
-            console.error('שגיאה במהלך תהליך הכניסה:', error);
+            console.error('Error during login process:', error);
             alert(error.message);
         }
     });
