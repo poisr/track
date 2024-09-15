@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (phoneNumber.length === 10) { // Assuming a valid phone number has 10 characters
             try {
-                const userResponse = await fetch(`${apiBaseUrl}/auth/users/${phoneNumber}`);
+                const userResponse = await fetch(`http://localhost:8082/auth/users/${phoneNumber}`);
 
                 if (userResponse.ok) {
                     const user = await userResponse.json();
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const userResponse = await fetch(`${apiBaseUrl}/auth/users/${phoneNumber}`);
+            const userResponse = await fetch(`http://localhost:8082/auth/users/${phoneNumber}`);
 
             if (userResponse.ok) {
                 const user = await userResponse.json();
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     showWelcomeMessage(`Welcome, ${user.firstName} ${user.lastName}!`);
                 }
             } else if (userResponse.status === 404) {
-                const createResponse = await fetch(`${apiBaseUrl}/auth/login`, {
+                const createResponse = await fetch(`http://localhost:8082/auth/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
