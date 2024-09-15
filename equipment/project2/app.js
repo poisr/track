@@ -14,6 +14,15 @@ const path = require('path');
 const cors = require('cors');
 
 const app = express();
+
+app.use(cors({
+    origin: ['https://track-vv4f.onrender.com', 'http://localhost:8082'], // אפשר בקשות משני הדומיינים
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+}));
+
+
 const PORT = process.env.PORT || 8082;
 const HOST = '0.0.0.0';
 
@@ -26,18 +35,6 @@ sequelize.authenticate()
     .catch(err => {
         console.error('Unable to connect to the database:', err);
     });
-
-
-app.use(cors({
-  origin: [
-    'https://track-vv4f.onrender.com', // החלף עם הכתובת של האפליקציה הקדמית שלך
-  ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
-
-
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
