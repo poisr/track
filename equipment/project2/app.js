@@ -32,7 +32,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth', authRoutes);
 app.use(cors({
-    origin: '*'
+    origin: ['https://track-vv4f.onrender.com', 'https://track-9gcf.onrender.com'], // List allowed origins here
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 
