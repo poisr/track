@@ -28,11 +28,16 @@ sequelize.authenticate()
     });
 
 app.use(cors({
-    origin: ['https://track-vv4f.onrender.com', 'http://localhost:8082', 'https://track-9gcf.onrender.com'],
+    origin: [
+        'https://track-vv4f.onrender.com', 
+        'http://localhost:8082', 
+        'https://track-9gcf.onrender.com'
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 }));
+
 
 
 
