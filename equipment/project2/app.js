@@ -27,15 +27,14 @@ sequelize.authenticate()
         console.error('Unable to connect to the database:', err);
     });
 
+app.use(cors()); // פרופיל CORS פתוח
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth', authRoutes);
-app.use(cors({
-    origin: ['https://track-vv4f.onrender.com', 'https://track-9gcf.onrender.com'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+
 
 
 // Route to get all categories
