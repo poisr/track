@@ -38,6 +38,13 @@ app.use(cors({
 }));
 
 
+const userResponse = await fetch(`${apiBaseUrl}/auth/users/${phoneNumber}`, {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    mode: 'cors' // Ensure CORS mode is set
+});
 
 
 
