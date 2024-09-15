@@ -27,7 +27,6 @@ sequelize.authenticate()
         console.error('Unable to connect to the database:', err);
     });
 
-const cors = require('cors');
 
 app.use(cors({
   origin: [
