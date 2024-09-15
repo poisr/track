@@ -1,15 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user'); // ודא שהנתיב לקובץ נכון
-const cors = require('cors');
-
-// אפשר CORS לכל הנתיבים הספציפיים של משתמש
-router.use(cors({
-    origin: ['https://track-vv4f.onrender.com', 'http://localhost:8082', 'https://track-9gcf.onrender.com'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
-}));
 
 // נתיב להתחברות
 router.post('/login', async (req, res) => {
@@ -24,7 +15,7 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ error: 'מספר טלפון חסר' });
         }
 
-        // בדוק אם המשתמש קיים במערכת
+        // קוד לבדוק את המשתמש במערכת
         let user = await User.findOne({ where: { phoneNumber } });
         if (!user) {
             // אם המשתמש לא קיים, צור משתמש חדש
@@ -57,4 +48,5 @@ router.get('/users/:phoneNumber', async (req, res) => {
 });
 
 module.exports = router;
+
 
