@@ -38,17 +38,6 @@ app.use(cors({
 }));
 
 
-const userResponse = await fetch(`${apiBaseUrl}/auth/users/${phoneNumber}`, {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    mode: 'cors' // Ensure CORS mode is set
-});
-
-
-
-
 // Route to get all categories
 app.get('/api/categories', async (req, res) => {
     try {
