@@ -9,7 +9,7 @@
   },
   "production": {
     "dialect": "sqlite",
-    "storage": "/tmp/database.production.db"  // כאן הקובץ שלך יישמר
+    "storage": "/tmp/database.production.db"  
   }
 }
 
