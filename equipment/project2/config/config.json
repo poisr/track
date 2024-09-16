@@ -1,15 +1,16 @@
 {
-    "development": {
-      "dialect": "sqlite",
-      "storage": "./database.db"
-    },
-    "test": {
-      "dialect": "sqlite",
-      "storage": "./database.test.db"
-    },
-    "production": {
-      "dialect": "sqlite",
-      "storage": "./database.production.db"
-    }
+  "development": {
+    "dialect": "sqlite",
+    "storage": "./database.db"
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "./database.test.db"
+  },
+  "production": {
+    "dialect": "sqlite",
+    "storage": "/tmp/database.production.db"  // כאן הקובץ שלך יישמר
   }
+}
+
   
